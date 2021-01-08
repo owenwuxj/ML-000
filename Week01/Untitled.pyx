@@ -10,6 +10,7 @@ cdef cnp.ndarray my_target_encoding():
     cdef cnp.ndarray[int] x = np.random.randint(10, size=(100, 1))
 
     cdef cnp.ndarray[float] resultArray = np.zeros(x.length)
+    cdef int i
     
     cdef valueDict = dict() # key:1~10->value:apperance w/ 1
     cdef countDict = dict() # key:1~10->value:apperance w/ 0 and 1   
@@ -19,7 +20,6 @@ cdef cnp.ndarray my_target_encoding():
         if x[i] not in valueDict.keys():
             valueDict[x_value] = y_value
             countDict[x_value] = 1
-            print(i)
         else: 
             valueDict[x_value] += y_value
             countDict[x_value] += 1
